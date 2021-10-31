@@ -1,6 +1,6 @@
-import { CustomError } from "./custom-error";
+import { CustomError } from './custom-error';
 
-const MESSAGE = "The resource is not found";
+const MESSAGE = 'The resource is not found';
 
 export class NotFoundError extends CustomError {
   statusCode = 404;
@@ -13,6 +13,7 @@ export class NotFoundError extends CustomError {
   }
 
   serializeErrors() {
+    console.log(this);
     return [
       {
         message: this.reason,

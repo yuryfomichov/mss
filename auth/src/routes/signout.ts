@@ -1,9 +1,11 @@
 import express from 'express';
+import { BadRequestError } from '../errors/bad-request-error';
 
 const router = express.Router();
 
-router.post('/signout', (req, res) => {
-  res.send('Hi there current user');
+router.get('/signout', (req, res) => {
+  // maybe implement token blocklist in future
+  throw new BadRequestError('Not implemented');
 });
 
 export { router as signoutRouter };
