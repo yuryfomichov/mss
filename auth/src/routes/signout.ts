@@ -1,5 +1,5 @@
+import { BadRequestError } from '@yfomichov/common-node-ts';
 import express from 'express';
-import { BadRequestError } from '../errors/bad-request-error';
 
 const router = express.Router();
 

@@ -1,0 +1,3 @@
+[submodule "common-node-ts"]
+	path = common-node-ts
+	url = git@github.com:yuryfomichov/common-node-ts.git

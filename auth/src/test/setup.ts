@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 let mongo: any;
 
 beforeAll(async () => {
+  jest.spyOn(global.console, 'error').mockImplementation();
+
   process.env.JWT_KEY = 'test_key';
 
   mongo = await MongoMemoryServer.create();

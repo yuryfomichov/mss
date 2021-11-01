@@ -1,8 +1,7 @@
+import { BadRequestError, validateRequestMiddleware } from '@yfomichov/common-node-ts';
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import jwt from 'jsonwebtoken';
-import { BadRequestError } from '../errors/bad-request-error';
-import { validateRequestMiddleware } from '../middlewares/validate-request';
 import { User } from '../models/user';
 import { Password } from '../services/password';
 
@@ -24,7 +23,7 @@ router.post(
       throw new BadRequestError(LOGIN_FAILED);
     }
 
-    const passwordsMatch = Password.compare(existingUser.password, password);
+    const passwordsMatch = await Password.compare(existingUser.password, password);
 
     if (!passwordsMatch) {
       throw new BadRequestError(LOGIN_FAILED);
